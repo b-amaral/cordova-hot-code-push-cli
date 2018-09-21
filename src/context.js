@@ -5,7 +5,7 @@
   var _ = require('lodash');
   var IGNORED_FILES_CONFIG_PATH = path.join(process.cwd(), '.chcpignore');
   var DEFAULT_WWW_FOLDER = path.join(process.cwd(), 'www');
-  var DEFAULT_CLI_CONFIG = path.join(process.cwd(), 'cordova-hcp.json');
+  var DEFAULT_CLI_CONFIG = 'cordova-hcp.json';
   var DEFAULT_IGNORE_LIST = [
       '.DS_Store',
       'node_modules/*',
@@ -28,7 +28,8 @@
 
   var Context = function(argv) {
     this.argv = argv ? argv : {};
-    this.defaultConfig = DEFAULT_CLI_CONFIG;
+    var configFile = path.join(process.cwd(), (argv.config || DEFAULT_CLI_CONFIG));
+    this.defaultConfig = configFile ;
     this.sourceDirectory = getSourceDirectory(argv);
     this.manifestFilePath = path.join(this.sourceDirectory, 'chcp.manifest');
     this.projectsConfigFilePath = path.join(this.sourceDirectory, 'chcp.json');
