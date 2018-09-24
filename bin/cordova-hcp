@@ -15,7 +15,7 @@ switch(cmd) {
       context = chcpContext.context(argv);
     command.execute(context);
     break;
-  case '--version':
+  case 'version':
     console.log('1.1.1');
     process.exit(0);
     break;
