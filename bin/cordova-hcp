@@ -15,6 +15,10 @@ switch(cmd) {
       context = chcpContext.context(argv);
     command.execute(context);
     break;
+  case '--version':
+    console.log('1.1.1');
+    process.exit(0);
+    break;
   default:
     console.log('TODO: Should print usage instructions.');
     process.exit(0);
